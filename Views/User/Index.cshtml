@@ -25,9 +25,9 @@
         
     <div class="form-group">
        
-            <label for="song" class="control-label">
-                <a href="@Url.Content(s.image)" class="fancybox"><img src="@Url.Content(s.image)" /> @s.Name</a>
-            </label>
+        <div class="thumbnail" style="max-width:400px;max-height:250px;">
+            <a href="@Url.Content(s.image)" class="fancybox"><img src="@Url.Content(s.image)"></a>
+        </div>
             
             <div style="padding-top:1em">
                 <audio controls="controls" style="width:561px">
