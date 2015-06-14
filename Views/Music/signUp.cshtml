@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "signUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model musicBox.Models.User
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"></button>
+            <a class="navbar-nav" href="/Music"><img src="~/Content/themes/base/images/logo.gif"></a>
+        </div>
+        <p class="nav navbar-text" style="text-align:center; vertical-align:top">
+            Sign Up Form
+        </p>
+        </div>
+</nav>
+
+
+<div class="container">
+        @using (Html.BeginForm("createAccount", "Music", FormMethod.Post, new { enctype="multipart/form-data" ,@class="form-horizontal"}))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend>Create Your own Account</legend>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name)
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.Name, new { @class = "col-lg-3 form-control", placeholder = "Agha ALi Abbas" })
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password)
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.Password, new { @class = "col-lg-3 form-control", placeholder = "1234",type="password" })
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Email, new { @class = "col-lg-3 form-control", placeholder = "xyz@live.com",type="email" })
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Contact)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Contact, new { @class = "col-lg-3 contol-label", placeholder = "0345678", type = "number" })
+                    @Html.ValidationMessageFor(model => model.Contact)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.image)
+                </div>
+                <div class="editor-field">
+                    <input type="file" name="pic">
+                    @Html.ValidationMessageFor(model => model.image)
+                </div>
+                <p>
+                    <input type="submit" value="Create Account" />
+                </p>
+            </fieldset>
+        }
+
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

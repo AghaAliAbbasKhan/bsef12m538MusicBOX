@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "login";
+}
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"></button>
+            <a class="navbar-nav" href="/Music"><img src="~/Content/themes/base/images/logo.gif"></a>
+        </div>
+        <p class="navbar-text " >
+            Login to your Account
+        </p>
+    </div>
+</nav>
+
+<div class="container">
+    <form class="form-horizontal" method="post" action="/Music/verify">
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" name="name" placeholder="agha ali abbas" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="pass" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-5">
+                <input type="password" class="form-control" name="pass" placeholder="123456" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label style="font-family:'Comic Sans MS';font-size:15px;">
+                        <input type="checkbox"> Stay Signed in
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary" style="font-family:'Comic Sans MS'">LOGIN</button>
+            </div>
+        </div>
+    </form>
+</div>
